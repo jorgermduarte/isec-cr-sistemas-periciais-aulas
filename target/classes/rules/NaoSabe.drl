@@ -1,0 +1,13 @@
+package rules;
+
+import org.example.facts.Pessoa;
+import org.example.facts.Comida;
+
+rule "Nao sabe"
+when
+$p:Pessoa($nome: nome, idade >= 18)
+forall($c:Comida(comida!=$p.getComidaPref()))
+then
+System.out.println("Informação insuficiente sobre alimentação de " +
+$nome);
+end

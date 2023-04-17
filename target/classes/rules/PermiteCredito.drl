@@ -1,0 +1,12 @@
+package rules;
+
+import org.example.facts.Pessoa;
+import org.example.facts.Comida;
+
+rule "Permite Credito"
+when
+$c:Comida()
+$p:Pessoa(idade>=18, comidaPref==$c.getComida(), $c.getCalorias()<=500, rendimento>=1000)
+then
+System.out.println("Pessoa maior de idade, com alimentação saudável. Rendimento acima do limiar 1000. Crédito permitido para "+ $p.getNome());
+end

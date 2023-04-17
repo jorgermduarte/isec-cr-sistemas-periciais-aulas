@@ -1,0 +1,13 @@
+
+package rules;
+
+import org.example.facts.Pessoa;
+import org.example.facts.Comida;
+
+rule "Negar Credito 3"
+when
+$c:Comida()
+$p:Pessoa(idade>=18, comidaPref==$c.getComida(), $c.getCalorias()<500, rendimento<1000)
+then
+System.out.println("Pessoa maior de idade, com alimentação saudável, mas sem rendimento mínimo. Crédito negado para " + $p.getNome());
+end

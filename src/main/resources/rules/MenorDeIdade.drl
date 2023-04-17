@@ -1,0 +1,11 @@
+package rules;
+
+import org.example.facts.Pessoa;
+import org.example.facts.Comida;
+
+rule "Menor de idade"
+when
+$p:Pessoa($nome: nome, idade < 18)
+then
+System.out.println("Recusado para " + $nome + " por ser menor de idade");
+end
